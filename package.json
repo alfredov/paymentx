@@ -1,24 +1,41 @@
 {
-  "name": "nextjs1",
+  "name": "paymentx",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "yarn@3.2.0",
+  "workspaces": [
+    "packages/*/*"
+  ],
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev:payment": "yarn workspace @cometa/payment run dev",
+    "start:ui": "start-storybook -p 6006",
+    "build:ui": "build-storybook",
+    "build:payment": "yarn workspace @cometa/payment run build",
+    "start": "yarn workspace @cometa/payment run start"
   },
   "dependencies": {
-    "next": "12.1.4",
     "react": "18.0.0",
     "react-dom": "18.0.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.17.8",
+    "@mdx-js/react": "^1.6.22",
+    "@storybook/addon-actions": "^6.4.20",
+    "@storybook/addon-docs": "^6.4.20",
+    "@storybook/addon-essentials": "^6.4.20",
+    "@storybook/addon-interactions": "^6.4.20",
+    "@storybook/addon-links": "^6.4.20",
+    "@storybook/react": "^6.4.20",
+    "@storybook/testing-library": "^0.0.9",
+    "@types/babel__core": "^7",
     "@types/node": "17.0.23",
     "@types/react": "17.0.43",
     "@types/react-dom": "17.0.14",
+    "babel-loader": "^8.2.4",
+    "core-js": "3",
     "eslint": "8.12.0",
     "eslint-config-next": "12.1.4",
+    "eslint-plugin-storybook": "^0.5.7",
     "typescript": "4.6.3"
   }
 }
