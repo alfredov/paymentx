@@ -1550,6 +1550,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@bits-x/accordion@workspace:packages/ui/Accordion":
+  version: 0.0.0-use.local
+  resolution: "@bits-x/accordion@workspace:packages/ui/Accordion"
+  dependencies:
+    "@emotion/react": ^11.5.0
+    "@radix-ui/react-accordion": ^0.1.6
+    "@types/react": ^17.0.30
+    "@types/uuid": ^8
+    react: ^17.0.2
+    tslib: ^2.3.1
+    uuid: ^8.3.2
+  peerDependencies:
+    react: ^18.0
+  languageName: unknown
+  linkType: soft
+
 "@bits-x/button@workspace:*, @bits-x/button@workspace:packages/ui/Button":
   version: 0.0.0-use.local
   resolution: "@bits-x/button@workspace:packages/ui/Button"
@@ -3056,6 +3072,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@radix-ui/react-accordion@npm:^0.1.6":
+  version: 0.1.6
+  resolution: "@radix-ui/react-accordion@npm:0.1.6"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@radix-ui/primitive": 0.1.0
+    "@radix-ui/react-collapsible": 0.1.6
+    "@radix-ui/react-collection": 0.1.4
+    "@radix-ui/react-compose-refs": 0.1.0
+    "@radix-ui/react-context": 0.1.1
+    "@radix-ui/react-id": 0.1.5
+    "@radix-ui/react-primitive": 0.1.4
+    "@radix-ui/react-use-controllable-state": 0.1.0
+  peerDependencies:
+    react: ^16.8 || ^17.0
+  checksum: 189e889f38466d9fd68d06ad9f24d896476dbc245360df2634ef8c44f530597ebf130e51f58caba57a5eb252126a858096432e6e4d0025a2f4b8aa1530be1e11
+  languageName: node
+  linkType: hard
+
 "@radix-ui/react-checkbox@npm:^0.1.5":
   version: 0.1.5
   resolution: "@radix-ui/react-checkbox@npm:0.1.5"
@@ -3073,6 +3108,40 @@ __metadata:
   peerDependencies:
     react: ^16.8 || ^17.0
   checksum: 658f249a52e1eec2697aa6c9bb43eb9910a3f6ebdb827bfb5561d94f6afaf80d5fb4cb9231672281e1057296e4fcfdb71b204db138e7a12fef7c3ea38303660c
+  languageName: node
+  linkType: hard
+
+"@radix-ui/react-collapsible@npm:0.1.6":
+  version: 0.1.6
+  resolution: "@radix-ui/react-collapsible@npm:0.1.6"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@radix-ui/primitive": 0.1.0
+    "@radix-ui/react-compose-refs": 0.1.0
+    "@radix-ui/react-context": 0.1.1
+    "@radix-ui/react-id": 0.1.5
+    "@radix-ui/react-presence": 0.1.2
+    "@radix-ui/react-primitive": 0.1.4
+    "@radix-ui/react-use-controllable-state": 0.1.0
+    "@radix-ui/react-use-layout-effect": 0.1.0
+  peerDependencies:
+    react: ^16.8 || ^17.0
+  checksum: b54dc6ece5d2e53a2cdf68da7d4ea3aaa0266da8e34b02de40d33d5fcdc957fd00c8bd0265d03e945f52ac78c191bdbe3ca23e53f39fc6239319c4f2dd17aa5e
+  languageName: node
+  linkType: hard
+
+"@radix-ui/react-collection@npm:0.1.4":
+  version: 0.1.4
+  resolution: "@radix-ui/react-collection@npm:0.1.4"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@radix-ui/react-compose-refs": 0.1.0
+    "@radix-ui/react-context": 0.1.1
+    "@radix-ui/react-primitive": 0.1.4
+    "@radix-ui/react-slot": 0.1.2
+  peerDependencies:
+    react: ^16.8 || ^17.0
+  checksum: 7c2b0ccca5e873e570ebd53e9133de86dfff26df01e16a7af2f4af1e55df71f90dd6d89995b24cf01b6eeaf04a3b05481a8f916792f76de58f9b0e77e0c4902f
   languageName: node
   linkType: hard
 
@@ -4905,6 +4974,13 @@ __metadata:
   version: 2.0.6
   resolution: "@types/unist@npm:2.0.6"
   checksum: 25cb860ff10dde48b54622d58b23e66214211a61c84c0f15f88d38b61aa1b53d4d46e42b557924a93178c501c166aa37e28d7f6d994aba13d24685326272d5db
+  languageName: node
+  linkType: hard
+
+"@types/uuid@npm:^8":
+  version: 8.3.4
+  resolution: "@types/uuid@npm:8.3.4"
+  checksum: 6f11f3ff70f30210edaa8071422d405e9c1d4e53abbe50fdce365150d3c698fe7bbff65c1e71ae080cbfb8fded860dbb5e174da96fdbbdfcaa3fb3daa474d20f
   languageName: node
   linkType: hard
 
@@ -15345,6 +15421,15 @@ __metadata:
   bin:
     uuid: ./bin/uuid
   checksum: 58de2feed61c59060b40f8203c0e4ed7fd6f99d42534a499f1741218a1dd0c129f4aa1de797bcf822c8ea5da7e4137aa3673431a96dae729047f7aca7b27866f
+  languageName: node
+  linkType: hard
+
+"uuid@npm:^8.3.2":
+  version: 8.3.2
+  resolution: "uuid@npm:8.3.2"
+  bin:
+    uuid: dist/bin/uuid
+  checksum: 5575a8a75c13120e2f10e6ddc801b2c7ed7d8f3c8ac22c7ed0c7b2ba6383ec0abda88c905085d630e251719e0777045ae3236f04c812184b7c765f63a70e58df
   languageName: node
   linkType: hard
 

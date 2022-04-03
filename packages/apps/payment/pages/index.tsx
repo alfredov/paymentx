@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import { Checkbox, Label } from '@bits-x/checkbox'
+import * as Acordion from '@bits-x/accordion'
 
 import styles from '../styles/Home.module.css'
 
@@ -20,6 +21,27 @@ const Home: NextPage = () => {
         <Checkbox id="input-title">
           <Label>Check this</Label>
         </Checkbox>
+        <Acordion.Root>
+          <Acordion.Item>
+            <Acordion.Trigger>
+              <Acordion.Title>Nombre de categoría</Acordion.Title>
+              <Acordion.PrimaryText>title</Acordion.PrimaryText>
+              <Acordion.SecondaryText>Content title1</Acordion.SecondaryText>
+            </Acordion.Trigger>
+            <Acordion.Content>
+              Contenido
+            </Acordion.Content>
+          </Acordion.Item>
+          <Acordion.Item>
+            <Acordion.Trigger>
+              <Acordion.Title>Subrama de materia</Acordion.Title>
+              <Acordion.PrimaryText>Dar click aqui</Acordion.PrimaryText>
+            </Acordion.Trigger>
+            <Acordion.Content>
+              Contenido 🙏
+            </Acordion.Content>
+          </Acordion.Item>
+        </Acordion.Root>
         <p className={styles.description}>
           Get started by editing{' '}
           <code className={styles.code}>pages/index.tsx</code>
