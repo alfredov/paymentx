@@ -12,16 +12,18 @@ const slideUp = keyframes({
 
 const root = css`
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 `;
 
+const item = css`
+  background-color: white;
+`
+
 const content = css`
-position: relative;
-  &[data-state="open"] {
-    animation: ${slideDown} 300ms cubic-bezier(0.87, 0, 0.13, 1)
-  };
-  &[data-state="closed"] {
-    animation: ${slideUp} 300ms cubic-bezier(0.87, 0, 0.13, 1)
-  }
+  padding: 16px 13px;
+  position: relative;
 `;
 
 const titleWrapper = css`
@@ -31,21 +33,33 @@ const titleWrapper = css`
   gap: 6px;
 `
 
+const title = css`
+  font-size: 16px;
+  font-weight: 700;
+  color: #333;
+`
+
+const primaryText = css`
+  color: #979797;
+  font-size: 14px;
+  font-weight: 400;
+`
+
 const triger = css`
   box-sizing: border-box;
+  border-radius: 1px;
   font-size: 12px;
   font-weight: 600;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #EEF3FE;
+  background-color: white;
   min-height: 32px;
-  padding: 8px 15px;
+  padding: 8px 13px;
   cursor: pointer;
   border: none;
   width: 100%;
   & > svg {
-    margin-right: 15px;
     transition: transform 300ms cubic-bezier(0.87, 0, 0.13, 1);
   }
   &[data-state=open] {
@@ -60,4 +74,7 @@ export default {
   content,
   triger,
   titleWrapper,
+  item,
+  title,
+  primaryText
 }

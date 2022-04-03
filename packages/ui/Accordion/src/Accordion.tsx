@@ -8,19 +8,20 @@ import { Interpolation, Theme } from '@emotion/react'
 
 type CommomProps = { css?: Interpolation<Theme> }
 
-export type AcordionProps = PrimitiveAccordion.AccordionMultipleProps & CommomProps
+export type AcordionProps = PrimitiveAccordion.AccordionSingleProps & CommomProps
 export type TriggerProps = PrimitiveAccordion.AccordionTriggerProps & CommomProps
 export type ContentProps = PrimitiveAccordion.AccordionContentProps & CommomProps
 
-const RootContext = React.createContext<{ itemValues: string[] }>({ itemValues: [] })
+const RootContext = React.createContext<{ item: string }>({ item: '' })
 export const Root: React.FC = ({ children }) => {
-  const [itemValues, setItemValues] = React.useState<string[]>([])
+  const [item, setItem] = React.useState<string>('')
   return (
-    <RootContext.Provider value={{ itemValues }}>
+    <RootContext.Provider value={{ item }}>
       <PrimitiveAccordion.Root
+        collapsible
         css={styles.root}
-        type="multiple"
-        onValueChange={values => setItemValues(values)}
+        type="single"
+        onValueChange={value => setItem(value)}
       >
         {children}
       </PrimitiveAccordion.Root>
@@ -33,7 +34,7 @@ export const Item: React.FC = ({ children }) => {
   const id = v4()
   return (
     <ItemContext.Provider value={{ value: id }}>
-      <PrimitiveAccordion.Item value={id}>
+      <PrimitiveAccordion.Item value={id} css={styles.item}>
         {children}
       </PrimitiveAccordion.Item>
     </ItemContext.Provider>
@@ -41,23 +42,23 @@ export const Item: React.FC = ({ children }) => {
 }
 
 export const Title: React.FC = ({ children }) => (
-  <span>{children}</span>
+  <span css={styles.title}>{children}</span>
 )
 
 export const PrimaryText: React.FC = ({ children }) => {
   const { value } = React.useContext(ItemContext)
-  const { itemValues } = React.useContext(RootContext)
+  const { item } = React.useContext(RootContext)
   
-  return !(itemValues.includes(value) && itemValues[0] === value) ? (
-    <span>{children}</span>
+  return !(item === value) ? (
+    <span css={styles.primaryText}>{children}</span>
   ): null
 }
 
 export const SecondaryText: React.FC = ({ children }) => {
   const { value } = React.useContext(ItemContext)
-  const { itemValues } = React.useContext(RootContext)
-  return (itemValues.includes(value) && itemValues[0] === value) ? (
-    <span>{children}</span>
+  const { item } = React.useContext(RootContext)
+  return (item === value) ? (
+    <span css={styles.primaryText}>{children}</span>
   ): null
 }
 
