@@ -7,6 +7,7 @@ export const avatar = css`
 `
 
 export const image = css`
+  border: 1px solid #C4C4C4;
   width: 38px;
   height: 38px;
   border-radius: 50%;
