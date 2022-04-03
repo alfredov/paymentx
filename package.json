@@ -7,10 +7,11 @@
     "packages/*/*"
   ],
   "scripts": {
+    "types:check": "tsc --skipLibCheck --noEmit",
     "dev:payment": "yarn workspace @bits-x/payment run dev",
     "start:ui": "start-storybook -p 6006",
     "build:storybook": "build-storybook",
-    "build:payment": "yarn workspace @bits-x/payment run build",
+    "build:payment": "yarn clean && yarn workspace @bits-x/payment run build",
     "start": "yarn workspace @bits-x/payment run start",
     "build:ui": "yarn build:config && yarn build:packages && yarn build:cleanup",
     "build:packages": "parcel build 'packages/ui/*/' --no-cache",
