@@ -16,7 +16,8 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "@cometa/button": ["./packages/ui/Button/src"]
+      "@cometa/button": ["./packages/ui/Button/src"],
+      "@cometa/checkbox": ["./packages/ui/Checkbox/src"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

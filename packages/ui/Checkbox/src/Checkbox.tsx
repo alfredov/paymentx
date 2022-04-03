@@ -9,6 +9,7 @@ import CheckIcon from './CheckIcon'
 import * as styles from './index.styles'
 
 export type Props = {
+  id?: string,
   defaultChecked?: boolean,
   name?: string,
   required?: boolean,
@@ -30,7 +31,7 @@ export const Label = ({ children, disabled, css }: LabelProps) => {
   )
 }
 
-const CheckboxContext = React.createContext({ id: '' })
+const CheckboxContext = React.createContext<{ id?: string }>({ id: undefined })
 
 export const Checkbox: React.FC<Props> = ({
   name,
@@ -39,8 +40,8 @@ export const Checkbox: React.FC<Props> = ({
   defaultChecked = false,
   disabled = false,
   required = false,
+  id,
 }) => {
-  const id = '_' + Math.random().toString(36).substr(2, 9)
   return (
     <CheckboxContext.Provider value={{ id }}>
       <div css={styles.wrapper}>

@@ -1,6 +1,6 @@
 {
   "name": "@cometa/checkbox",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0-beta.2",
   "private": true,
   "license": "MIT",
   "source": "src/index.ts",

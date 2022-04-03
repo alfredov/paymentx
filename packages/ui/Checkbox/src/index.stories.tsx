@@ -10,17 +10,17 @@ const loremIpsum = 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vo
 
 export const verticalGroup = () => (
   <div>
-    <Checkbox onChange={value => console.log(value)}>
+    <Checkbox id="input1" onChange={value => console.log(value)}>
       <Label css={{ color: 'red' }}>Check this</Label>
       <Label>Check THAT</Label>
     </Checkbox>
     <Checkbox disabled name="check4">
       <Label>45</Label>
     </Checkbox>
-    <Checkbox name="check4">
+    <Checkbox id="input2" name="check4">
       <Label>Check if you are older than 20</Label>
     </Checkbox>
-    <Checkbox name="foreign">
+    <Checkbox id="input3" name="foreign">
       <Label>Check if you are foreign</Label>
     </Checkbox>
   </div>

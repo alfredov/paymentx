@@ -1575,7 +1575,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@cometa/checkbox@workspace:packages/ui/Checkbox":
+"@cometa/checkbox@workspace:*, @cometa/checkbox@workspace:packages/ui/Checkbox":
   version: 0.0.0-use.local
   resolution: "@cometa/checkbox@workspace:packages/ui/Checkbox"
   dependencies:
@@ -1594,6 +1594,7 @@ __metadata:
   resolution: "@cometa/payment@workspace:packages/apps/payment"
   dependencies:
     "@cometa/button": "workspace:*"
+    "@cometa/checkbox": "workspace:*"
     "@types/node": 17.0.23
     "@types/react": 17.0.43
     "@types/react-dom": 17.0.14
