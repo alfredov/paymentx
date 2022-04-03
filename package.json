@@ -9,9 +9,15 @@
   "scripts": {
     "dev:payment": "yarn workspace @bits-x/payment run dev",
     "start:ui": "start-storybook -p 6006",
-    "build:ui": "build-storybook",
+    "build:storybook": "build-storybook",
     "build:payment": "yarn workspace @bits-x/payment run build",
-    "start": "yarn workspace @bits-x/payment run start"
+    "start": "yarn workspace @bits-x/payment run start",
+    "build:ui": "yarn build:config && yarn build:packages && yarn build:cleanup",
+    "build:packages": "parcel build 'packages/ui/*/' --no-cache",
+    "build:config": "mv tsconfig.json tsconfig.tmp.json && mv tsconfig.production.json tsconfig.json",
+    "build:cleanup": "mv tsconfig.json tsconfig.production.json && mv tsconfig.tmp.json tsconfig.json",
+    "clean": "yarn workspaces foreach run clean",
+    "publish:ui:stable": "yarn clean && yarn build:ui && yarn workspaces foreach run publish:stable"
   },
   "dependencies": {
     "react": "18.0.0",
@@ -20,6 +26,8 @@
   "devDependencies": {
     "@babel/core": "^7.17.8",
     "@mdx-js/react": "^1.6.22",
+    "@parcel/packager-ts": "2.4.1",
+    "@parcel/transformer-typescript-types": "2.4.1",
     "@storybook/addon-actions": "^6.4.20",
     "@storybook/addon-docs": "^6.4.20",
     "@storybook/addon-essentials": "^6.4.20",
@@ -36,6 +44,7 @@
     "eslint": "8.12.0",
     "eslint-config-next": "12.1.4",
     "eslint-plugin-storybook": "^0.5.7",
+    "parcel": "^2.4.1",
     "typescript": "4.6.3"
   }
 }

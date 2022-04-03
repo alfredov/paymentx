@@ -1,7 +1,6 @@
 {
   "name": "@bits-x/button",
   "version": "1.0.0-beta.1",
-  "private": true,
   "license": "MIT",
   "source": "src/index.ts",
   "main": "dist/index.js",
@@ -10,7 +9,7 @@
   "scripts": {
     "clean": "rm -rf dist",
     "version": "yarn version",
-    "publish:stable": "yarn npm publish --tolerate-republish --access restricted"
+    "publish:stable": "npm publish --tolerate-republish --access public"
   },
   "files": [
     "dist",
