@@ -1566,6 +1566,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@bits-x/avatar@workspace:packages/ui/Avatar":
+  version: 0.0.0-use.local
+  resolution: "@bits-x/avatar@workspace:packages/ui/Avatar"
+  dependencies:
+    "@emotion/react": ^11.5.0
+    "@types/react": ^17.0.30
+    "@types/uuid": ^8
+    react: ^17.0.2
+    tslib: ^2.3.1
+  peerDependencies:
+    react: ^18.0
+  languageName: unknown
+  linkType: soft
+
 "@bits-x/button@workspace:*, @bits-x/button@workspace:packages/ui/Button":
   version: 0.0.0-use.local
   resolution: "@bits-x/button@workspace:packages/ui/Button"

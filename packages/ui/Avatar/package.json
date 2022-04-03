@@ -1,0 +1,39 @@
+{
+  "name": "@bits-x/avatar",
+  "version": "1.0.0-beta.1",
+  "license": "MIT",
+  "source": "src/index.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.module.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "clean": "rm -rf dist && rm -rf node_modules",
+    "version": "yarn version",
+    "publish:stable": "npm publish --tolerate-republish --access public"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "peerDependencies": {
+    "react": "^18.0"
+  },
+  "sideEffects": false,
+  "homepage": "https://web-develop-ui.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alfredov/paymentx.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alfredov/paymentx/issues"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.5.0"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.30",
+    "@types/uuid": "^8",
+    "react": "^17.0.2",
+    "tslib": "^2.3.1"
+  }
+}

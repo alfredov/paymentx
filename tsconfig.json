@@ -5,7 +5,8 @@
       "@bits-x/button": ["./packages/ui/Button/src"],
       "@bits-x/checkbox": ["./packages/ui/Checkbox/src"],
       "@bits-x/accordion": ["./packages/ui/Accordion/src"],
-      "@bits-x/provider": ["./packages/ui/Provider/src"]
+      "@bits-x/provider": ["./packages/ui/Provider/src"],
+      "@bits-x/avatar": ["./packages/ui/Avatar/src"]
     }
   }
 }
