@@ -1,0 +1,40 @@
+{
+  "name": "@cometa/checkbox",
+  "version": "1.0.0-beta.1",
+  "private": true,
+  "license": "MIT",
+  "source": "src/index.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.module.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "version": "yarn version",
+    "publish:stable": "yarn npm publish --tolerate-republish --access restricted"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "peerDependencies": {
+    "react": "^18.0"
+  },
+  "sideEffects": false,
+  "homepage": "https://web-develop-ui.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alfredov/paymentx.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alfredov/paymentx/issues"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.5.0",
+    "@radix-ui/react-checkbox": "^0.1.5"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.43",
+    "react": "^18.0.0",
+    "tslib": "^2.3.1"
+  }
+}
