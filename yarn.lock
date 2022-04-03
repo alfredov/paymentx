@@ -1607,6 +1607,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@bits-x/header@workspace:packages/ui/Header":
+  version: 0.0.0-use.local
+  resolution: "@bits-x/header@workspace:packages/ui/Header"
+  dependencies:
+    "@emotion/react": ^11.5.0
+    "@types/react": ^17.0.30
+    "@types/uuid": ^8
+    react: ^17.0.2
+    tslib: ^2.3.1
+  peerDependencies:
+    react: ^18.0
+  languageName: unknown
+  linkType: soft
+
 "@bits-x/payment@workspace:packages/apps/payment":
   version: 0.0.0-use.local
   resolution: "@bits-x/payment@workspace:packages/apps/payment"
