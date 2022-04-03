@@ -7,11 +7,11 @@
     "packages/*/*"
   ],
   "scripts": {
-    "dev:payment": "yarn workspace @cometa/payment run dev",
+    "dev:payment": "yarn workspace @bits-x/payment run dev",
     "start:ui": "start-storybook -p 6006",
     "build:ui": "build-storybook",
-    "build:payment": "yarn workspace @cometa/payment run build",
-    "start": "yarn workspace @cometa/payment run start"
+    "build:payment": "yarn workspace @bits-x/payment run build",
+    "start": "yarn workspace @bits-x/payment run start"
   },
   "dependencies": {
     "react": "18.0.0",

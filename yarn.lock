@@ -1550,21 +1550,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cnakazawa/watch@npm:^1.0.3":
-  version: 1.0.4
-  resolution: "@cnakazawa/watch@npm:1.0.4"
-  dependencies:
-    exec-sh: ^0.3.2
-    minimist: ^1.2.0
-  bin:
-    watch: cli.js
-  checksum: 88f395ca0af2f3c0665b8ce7bb29e83647ec5d141e8735712aeeee4117081555436712966b6957aa1c461f6f826a4d23b0034e379c443a10e919f81c8748bf29
-  languageName: node
-  linkType: hard
-
-"@cometa/button@workspace:*, @cometa/button@workspace:packages/ui/Button":
+"@bits-x/button@workspace:*, @bits-x/button@workspace:packages/ui/Button":
   version: 0.0.0-use.local
-  resolution: "@cometa/button@workspace:packages/ui/Button"
+  resolution: "@bits-x/button@workspace:packages/ui/Button"
   dependencies:
     "@emotion/react": ^11.5.0
     "@types/react": ^17.0.30
@@ -1575,9 +1563,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@cometa/checkbox@workspace:*, @cometa/checkbox@workspace:packages/ui/Checkbox":
+"@bits-x/checkbox@workspace:*, @bits-x/checkbox@workspace:packages/ui/Checkbox":
   version: 0.0.0-use.local
-  resolution: "@cometa/checkbox@workspace:packages/ui/Checkbox"
+  resolution: "@bits-x/checkbox@workspace:packages/ui/Checkbox"
   dependencies:
     "@emotion/react": ^11.5.0
     "@radix-ui/react-checkbox": ^0.1.5
@@ -1589,12 +1577,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@cometa/payment@workspace:packages/apps/payment":
+"@bits-x/payment@workspace:packages/apps/payment":
   version: 0.0.0-use.local
-  resolution: "@cometa/payment@workspace:packages/apps/payment"
+  resolution: "@bits-x/payment@workspace:packages/apps/payment"
   dependencies:
-    "@cometa/button": "workspace:*"
-    "@cometa/checkbox": "workspace:*"
+    "@bits-x/button": "workspace:*"
+    "@bits-x/checkbox": "workspace:*"
     "@types/node": 17.0.23
     "@types/react": 17.0.43
     "@types/react-dom": 17.0.14
@@ -1606,6 +1594,18 @@ __metadata:
     typescript: 4.6.3
   languageName: unknown
   linkType: soft
+
+"@cnakazawa/watch@npm:^1.0.3":
+  version: 1.0.4
+  resolution: "@cnakazawa/watch@npm:1.0.4"
+  dependencies:
+    exec-sh: ^0.3.2
+    minimist: ^1.2.0
+  bin:
+    watch: cli.js
+  checksum: 88f395ca0af2f3c0665b8ce7bb29e83647ec5d141e8735712aeeee4117081555436712966b6957aa1c461f6f826a4d23b0034e379c443a10e919f81c8748bf29
+  languageName: node
+  linkType: hard
 
 "@discoveryjs/json-ext@npm:^0.5.3":
   version: 0.5.7

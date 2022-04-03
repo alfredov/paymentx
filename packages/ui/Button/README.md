@@ -3,14 +3,14 @@
 ## Installation
 
 ```sh
-$ yarn add @cometa/button
+$ yarn add @bits-x/button
 # or
-$ npm install @cometa/button
+$ npm install @bits-x/button
 ```
 
 ## Usage
 ```js
-import Button from '@cometa/button'
+import Button from '@bits-x/button'
 
 <Button>
   Primary Button
