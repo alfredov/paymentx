@@ -7,7 +7,7 @@ import { isActionOf } from 'typesafe-actions'
 import action,{ TAction } from '../actions/fetchStudent'
 
 export type TResponse = {
-  fist_name: string,
+  first_name: string,
   last_name: string,
   cohort: string,
   school: {
@@ -22,16 +22,17 @@ export const fetchStudentEpic = (
   filter(isActionOf(action.request)),
   switchMap(({ payload }) =>
     ajax.getJSON<TResponse>(
-      `http://ec2-3-239-221-74.compute-1.amazonaws.com:8000/api/v1/students/${payload.id}`
+      `http://ec2-3-239-221-74.compute-1.amazonaws.com:8000/api/v1/students/${payload.id}`,
+      { hash: 'OcJn4jYChW' }
     ).pipe(
       mergeMap(response => of(action.success({
         cohort: response.cohort,
-        firstName: response.fist_name,
+        firstName: response.first_name,
         lastName: response.last_name,
         schoolLogo: response.school.logo,
         schoolName: response.school.name
       }))),
-      catchError((error: AjaxError) => of(action.failure(error.response.message || error.message)))
+      catchError((error: AjaxError) => of(action.failure(error.message)))
     )
   )
 )
