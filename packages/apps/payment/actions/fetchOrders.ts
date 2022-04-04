@@ -7,7 +7,9 @@ export type TSuccess = {
   priceCurrency: 'MXN',
   due: string,
   status: 'PAID' | 'DUE' | 'OUTSTANDING',
-  interest: string | null
+  interest: string | null,
+  checked: boolean,
+  disabled: boolean,
 }[]
 
 export type TRequest = { id: string }

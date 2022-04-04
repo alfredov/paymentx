@@ -15,7 +15,13 @@ export const fetchOrdersEpic = (
       `http://ec2-3-239-221-74.compute-1.amazonaws.com:8000/api/v1/students/${payload.id}/orders/`,
       { hash: 'OcJn4jYChW' }
     ).pipe(
-      mergeMap(response => of(action.success(response))),
+      mergeMap(response => of(action.success(
+        response.map(item => ({
+          ...item,
+          checked: false,
+          disabled: false,
+        }))
+      ))),
       catchError((error: AjaxError) => of(action.failure(error.message)))
     )
   )

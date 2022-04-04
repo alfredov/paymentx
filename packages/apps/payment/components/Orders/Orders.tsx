@@ -80,7 +80,11 @@ const Orders = ({ paid, due, outstanding, onAdd, onRemove }: OrdersProps) => {
                 <span className={styles.orderItem}>{order.name}</span>
                 <span className={styles.orderItem}>Vencido el {format(new Date(order.due), 'dd MMMM', { locale: es })}</span>
               </div>
-              <Checkbox onChange={checked => checkHandler(checked, order)}>
+              <Checkbox
+                disabled={order.disabled}
+                defaultChecked={order.checked}
+                onChange={checked => checkHandler(checked, order)}
+              >
                 <Label>
                   $ {getCurrencyFormat(Number(order.price), order.priceCurrency)}
                 </Label>
@@ -107,7 +111,11 @@ const Orders = ({ paid, due, outstanding, onAdd, onRemove }: OrdersProps) => {
                 <span className={styles.orderItem}>{order.name}</span>
                 <span className={styles.orderItem}>Vence el {format(new Date(order.due), 'dd MMMM', { locale: es })}</span>
               </div>
-              <Checkbox defaultChecked onChange={checked => checkHandler(checked, order)}>
+              <Checkbox
+                disabled={order.disabled}
+                defaultChecked={order.checked}
+                onChange={checked => checkHandler(checked, order)}
+              >
                 <Label>
                   $ {getCurrencyFormat(Number(order.price), order.priceCurrency)}
                 </Label>
