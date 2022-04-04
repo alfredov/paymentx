@@ -39,3 +39,13 @@
   font-size: 20px;
   font-weight: 500;
 }
+
+.buttonWrapper {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  padding: 15px;
+  backdrop-filter: blur(2px);
+}

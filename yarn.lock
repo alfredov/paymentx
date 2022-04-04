@@ -1550,7 +1550,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@bits-x/accordion@workspace:packages/ui/Accordion":
+"@bits-x/accordion@workspace:*, @bits-x/accordion@workspace:packages/ui/Accordion":
   version: 0.0.0-use.local
   resolution: "@bits-x/accordion@workspace:packages/ui/Accordion"
   dependencies:
@@ -1566,7 +1566,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@bits-x/avatar@workspace:packages/ui/Avatar":
+"@bits-x/avatar@workspace:*, @bits-x/avatar@workspace:packages/ui/Avatar":
   version: 0.0.0-use.local
   resolution: "@bits-x/avatar@workspace:packages/ui/Avatar"
   dependencies:
@@ -1607,7 +1607,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@bits-x/header@workspace:packages/ui/Header":
+"@bits-x/header@workspace:*, @bits-x/header@workspace:packages/ui/Header":
   version: 0.0.0-use.local
   resolution: "@bits-x/header@workspace:packages/ui/Header"
   dependencies:
@@ -1625,8 +1625,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@bits-x/payment@workspace:packages/apps/payment"
   dependencies:
+    "@bits-x/accordion": "workspace:*"
+    "@bits-x/avatar": "workspace:*"
     "@bits-x/button": "workspace:*"
     "@bits-x/checkbox": "workspace:*"
+    "@bits-x/header": "workspace:*"
     "@types/node": 17.0.23
     "@types/react": 17.0.43
     "@types/react-dom": 17.0.14

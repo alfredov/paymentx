@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 
 import { Header } from '@bits-x/header'
 import * as Avatar from '@bits-x/avatar'
+import Button from '@bits-x/button'
 
 import styles from '../styles/Home.module.css'
 import * as selectors from '../selectors'
@@ -41,7 +42,7 @@ const Home = (props: Props) => {
             </div>
             <div className={styles.studentInfoItem}>
               <span>Total a Pagar</span>
-              <span>$ ---</span>
+              <span>$ {props.cart.total}</span>
             </div>
           </div>
         )}
@@ -52,6 +53,14 @@ const Home = (props: Props) => {
           onAdd={({ id, price, due, status }) => props.addOrder({ id, price, due, status })}
           onRemove={({ id, price, due, status }) => props.removeOrder({ id, price, due, status })}
         />
+        <div className={styles.buttonWrapper}>
+          <Button
+            css={{ flex: 1 }}
+            disabled={props.cart.total === 0}
+          >
+            IR A PAGAR
+          </Button>
+        </div>
       </main>
     </div>
   )
@@ -59,7 +68,8 @@ const Home = (props: Props) => {
 
 const mapStateToProps = (state: any) => ({
   student: selectors.fetchStudent(state).data,
-  orders: selectors.orders(state)
+  orders: selectors.orders(state),
+  cart: selectors.cartReducer(state)
 })
 
 const mapDispatchToProps = ({

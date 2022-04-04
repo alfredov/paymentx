@@ -15,3 +15,5 @@ export const orders = (state: RootState) => {
     outstanding: []
   })
 }
+
+export const cartReducer = (state: RootState) => state[REDUCER_INDEX].cartOrder
