@@ -1,6 +1,7 @@
 import { ActionType, createAction } from 'typesafe-actions'
+import { TOrder } from '../schemas'
 
-const action = createAction('ADD_ORDER')<{ id: string, price: number }>()
+const action = createAction('ADD_ORDER')<TOrder>()
 
 export type TAction = ActionType<typeof action>
 

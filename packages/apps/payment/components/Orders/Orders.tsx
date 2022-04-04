@@ -7,30 +7,36 @@ import { Checkbox, Label } from '@bits-x/checkbox'
 import { getCurrencyFormat } from '../../core-app/utils'
 import { TSuccess } from '../../actions/fetchOrders'
 import styles from './index.module.css'
-
-type SingleOrder =  { id: string, price: number }
+import { TOrder } from '../../schemas'
 
 export type OrdersProps = {
   paid: TSuccess,
   due: TSuccess,
   outstanding: TSuccess,
-  onAdd?: (order: SingleOrder) => void,
-  onRemove?: (order: SingleOrder) => void,
+  onAdd?: (order: TOrder) => void,
+  onRemove?: (order: TOrder) => void,
 }
 
 const Orders = ({ paid, due, outstanding, onAdd, onRemove }: OrdersProps) => {
-  const checkHandler = (checked: boolean, order: { id: string, price: string, interest: string | null }) => {   
+  const checkHandler = (
+    checked: boolean,
+    order: Omit<TOrder, 'price'> & { price: string, interest: string | null }
+  ) => {   
     if (checked) {
       if (onAdd) {
         if (order.interest) {
           onAdd({
             id: order.id,
-            price: parseFloat(order.price) + parseFloat(order.interest)
+            due: order.due,
+            price: parseFloat(order.price) + parseFloat(order.interest),
+            status: order.status
           })
         } else {
           onAdd({
             id: order.id,
-            price: parseFloat(order.price)
+            due: order.due,
+            price: parseFloat(order.price),
+            status: order.status
           })
         }
       }
@@ -39,12 +45,16 @@ const Orders = ({ paid, due, outstanding, onAdd, onRemove }: OrdersProps) => {
         if (order.interest) {
           onRemove({
             id: order.id,
-            price: parseFloat(order.price) + parseFloat(order.interest)
+            due: order.due,
+            price: parseFloat(order.price) + parseFloat(order.interest),
+            status: order.status,
           })
         } else {
           onRemove({
             id: order.id,
-            price: parseFloat(order.price)
+            due: order.due,
+            price: parseFloat(order.price),
+            status: order.status,
           })
         }
       }

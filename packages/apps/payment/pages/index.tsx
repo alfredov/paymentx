@@ -49,8 +49,8 @@ const Home = (props: Props) => {
           due={props.orders.due}
           paid={props.orders.paid}
           outstanding={props.orders.outstanding}
-          onAdd={({ id, price }) => props.addOrder({ id, price })}
-          onRemove={({ id, price }) => props.removeOrder({ id, price })}
+          onAdd={({ id, price, due, status }) => props.addOrder({ id, price, due, status })}
+          onRemove={({ id, price, due, status }) => props.removeOrder({ id, price, due, status })}
         />
       </main>
     </div>
