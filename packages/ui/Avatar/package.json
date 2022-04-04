@@ -16,7 +16,7 @@
     "README.md"
   ],
   "peerDependencies": {
-    "react": "^18.0"
+    "react": "^16.8 || ^17.0 || ^18.0"
   },
   "sideEffects": false,
   "homepage": "https://web-develop-ui.vercel.app",
@@ -33,7 +33,7 @@
   "devDependencies": {
     "@types/react": "^17.0.30",
     "@types/uuid": "^8",
-    "react": "^17.0.2",
+    "react": "18.0.0",
     "tslib": "^2.3.1"
   }
 }

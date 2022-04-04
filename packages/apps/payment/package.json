@@ -12,11 +12,12 @@
   "dependencies": {
     "@bits-x/button": "workspace:*",
     "@bits-x/checkbox": "workspace:*",
-    "history": "^5.0.1",
     "next": "12.1.4",
     "react": "18.0.0",
     "react-dom": "18.0.0",
+    "react-redux": "^7.2.8",
     "redux": "^4.1.2",
+    "redux-devtools-extension": "^2.13.9",
     "redux-observable": "1.2.0",
     "rxjs": "^6.6.3",
     "typesafe-actions": "^5.1.0"

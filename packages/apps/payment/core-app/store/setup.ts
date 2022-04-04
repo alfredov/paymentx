@@ -10,17 +10,15 @@ import { getEnhancers } from './utils'
 import { RootAction } from './actions'
 
 export const setup = (
-  history: History,
   initialState?: RootState,
 ) => {
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const epicMiddleWare = createEpicMiddleware<RootAction, RootAction, any>({ dependencies: {
     ajax,
     getJSON: ajax.getJSON,
   } })
 
-  const enhancers = getEnhancers(history, epicMiddleWare)
+  const enhancers = getEnhancers(epicMiddleWare)
 
   const store = createStore(
     createRootReducer(),
