@@ -1,13 +1,13 @@
 
 import Head from 'next/head'
 import { connect } from 'react-redux'
-import { Checkbox, Label } from '@bits-x/checkbox'
-import * as Acordion from '@bits-x/accordion'
+
 import { Header } from '@bits-x/header'
 import * as Avatar from '@bits-x/avatar'
 
 import styles from '../styles/Home.module.css'
 import * as selectors from '../selectors'
+import Orders from '../components/Orders'
 
 type Props = ReturnType<typeof mapStateToProps>
 
@@ -43,37 +43,21 @@ const Home = (props: Props) => {
             </div>
           </div>
         )}
-        <Checkbox id="input-title">
-          <Label>Check this</Label>
-        </Checkbox>
-        <Acordion.Root>
-          <Acordion.Item>
-            <Acordion.Trigger>
-              <Acordion.Title>Nombre de categoría</Acordion.Title>
-              <Acordion.PrimaryText>title</Acordion.PrimaryText>
-              <Acordion.SecondaryText>Content title1</Acordion.SecondaryText>
-            </Acordion.Trigger>
-            <Acordion.Content>
-              Contenido
-            </Acordion.Content>
-          </Acordion.Item>
-          <Acordion.Item>
-            <Acordion.Trigger>
-              <Acordion.Title>Subrama de materia</Acordion.Title>
-              <Acordion.PrimaryText>Dar click aqui</Acordion.PrimaryText>
-            </Acordion.Trigger>
-            <Acordion.Content>
-              Contenido 🙏
-            </Acordion.Content>
-          </Acordion.Item>
-        </Acordion.Root>
+        <Orders
+          due={props.orders.due}
+          paid={props.orders.paid}
+          outstanding={props.orders.outstanding}
+          onAdd={(order) => console.log('onAdd', order)}
+          onRemove={(order) => console.log('onRemove', order)}
+        />
       </main>
     </div>
   )
 }
 
 const mapStateToProps = (state: any) => ({
-  student: selectors.fetchStudent(state).data
+  student: selectors.fetchStudent(state).data,
+  orders: selectors.orders(state)
 })
 
 export default connect(mapStateToProps)(Home)

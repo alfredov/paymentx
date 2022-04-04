@@ -4,6 +4,7 @@ export type TSuccess = {
   id: string,
   name: string,
   price: string,
+  priceCurrency: 'MXN',
   due: string,
   status: 'PAID' | 'DUE' | 'OUTSTANDING',
   interest: string | null
