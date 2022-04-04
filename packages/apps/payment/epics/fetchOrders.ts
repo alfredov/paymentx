@@ -19,7 +19,7 @@ export const fetchOrdersEpic = (
         response.map(item => ({
           ...item,
           checked: false,
-          disabled: false,
+          disabled: true,
         }))
       ))),
       catchError((error: AjaxError) => of(action.failure(error.message)))

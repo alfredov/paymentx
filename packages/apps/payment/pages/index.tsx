@@ -8,8 +8,10 @@ import * as Avatar from '@bits-x/avatar'
 import styles from '../styles/Home.module.css'
 import * as selectors from '../selectors'
 import Orders from '../components/Orders'
+import addOrderAction from '../actions/addOrder'
+import removeOrderAction from '../actions/removeOrder'
 
-type Props = ReturnType<typeof mapStateToProps>
+type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps
 
 const Home = (props: Props) => {
   return (
@@ -47,8 +49,8 @@ const Home = (props: Props) => {
           due={props.orders.due}
           paid={props.orders.paid}
           outstanding={props.orders.outstanding}
-          onAdd={(order) => console.log('onAdd', order)}
-          onRemove={(order) => console.log('onRemove', order)}
+          onAdd={({ id, price }) => props.addOrder({ id, price })}
+          onRemove={({ id, price }) => props.removeOrder({ id, price })}
         />
       </main>
     </div>
@@ -60,4 +62,9 @@ const mapStateToProps = (state: any) => ({
   orders: selectors.orders(state)
 })
 
-export default connect(mapStateToProps)(Home)
+const mapDispatchToProps = ({
+  addOrder: addOrderAction,
+  removeOrder: removeOrderAction
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
