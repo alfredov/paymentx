@@ -1,6 +1,5 @@
-import type { NextPage } from 'next'
+
 import Head from 'next/head'
-import Image from 'next/image'
 import { connect } from 'react-redux'
 import { Checkbox, Label } from '@bits-x/checkbox'
 import * as Acordion from '@bits-x/accordion'
@@ -32,6 +31,18 @@ const Home = (props: Props) => {
         )}
       </Header>
       <main className={styles.main}>
+        {props.student && (
+          <div className={styles.studentInfo}>
+            <div className={styles.studentInfoItem}>
+              <span>{props.student.firstName} {props.student.lastName}</span>
+              <span>{props.student.cohort}</span>
+            </div>
+            <div className={styles.studentInfoItem}>
+              <span>Total a Pagar</span>
+              <span>$ ---</span>
+            </div>
+          </div>
+        )}
         <Checkbox id="input-title">
           <Label>Check this</Label>
         </Checkbox>
