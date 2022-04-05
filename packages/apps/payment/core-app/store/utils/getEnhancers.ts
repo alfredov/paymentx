@@ -1,13 +1,9 @@
 import { applyMiddleware, compose, Store, StoreEnhancer } from 'redux'
-import { History } from 'history'
 import { EpicMiddleware } from 'redux-observable'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
 import { RootAction } from '../actions'
 import { RootState } from '../reducer'
-
-// const composeEnhancers =
-//   (window && (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose
 
 const composeEnhancers = composeWithDevTools
 

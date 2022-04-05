@@ -1,5 +1,5 @@
 
-import { History } from 'history'
+
 import { createEpicMiddleware } from 'redux-observable'
 import { createStore } from 'redux'
 import { ajax } from 'rxjs/ajax'
@@ -7,13 +7,12 @@ import { ajax } from 'rxjs/ajax'
 import { createRootReducer, RootState } from './reducer'
 import { createRootEpic } from './epics'
 import { getEnhancers } from './utils'
-import { RootAction } from './actions'
 
 export const setup = (
   initialState?: RootState,
 ) => {
 
-  const epicMiddleWare = createEpicMiddleware<RootAction, RootAction, any>({ dependencies: {
+  const epicMiddleWare = createEpicMiddleware<any, any, any>({ dependencies: {
     ajax,
     getJSON: ajax.getJSON,
   } })
