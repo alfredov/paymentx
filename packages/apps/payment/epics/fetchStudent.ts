@@ -22,7 +22,7 @@ export const fetchStudentEpic = (
   filter(isActionOf(action.request)),
   switchMap(({ payload }) =>
     ajax.getJSON<TResponse>(
-      `http://ec2-3-239-221-74.compute-1.amazonaws.com:8000/api/v1/students/${payload.id}`,
+      '/api/student',
       { hash: 'OcJn4jYChW' }
     ).pipe(
       mergeMap(response => of(action.success({
