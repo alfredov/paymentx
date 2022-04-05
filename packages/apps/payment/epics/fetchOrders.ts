@@ -11,10 +11,7 @@ export const fetchOrdersEpic = (
 ) => action$.pipe(
   filter(isActionOf(action.request)),
   switchMap(({ payload }) =>
-    ajax.getJSON<TSuccess>(
-      `http://ec2-3-239-221-74.compute-1.amazonaws.com:8000/api/v1/students/${payload.id}/orders/`,
-      { hash: 'OcJn4jYChW' }
-    ).pipe(
+    ajax.getJSON<TSuccess>('/api/orders').pipe(
       mergeMap(response => of(action.success(
         response.map(item => ({
           ...item,

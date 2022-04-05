@@ -21,10 +21,7 @@ export const fetchStudentEpic = (
 ) => action$.pipe(
   filter(isActionOf(action.request)),
   switchMap(({ payload }) =>
-    ajax.getJSON<TResponse>(
-      '/api/student',
-      { hash: 'OcJn4jYChW' }
-    ).pipe(
+    ajax.getJSON<TResponse>('/api/student').pipe(
       mergeMap(response => of(action.success({
         cohort: response.cohort,
         firstName: response.first_name,
