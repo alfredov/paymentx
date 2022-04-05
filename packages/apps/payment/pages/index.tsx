@@ -47,20 +47,21 @@ const Home = (props: Props) => {
           </div>
         )}
         <Orders
+          loading={props.loading}
           due={props.orders.due}
           paid={props.orders.paid}
           outstanding={props.orders.outstanding}
           onAdd={({ id, price, due, status }) => props.addOrder({ id, price, due, status })}
           onRemove={({ id, price, due, status }) => props.removeOrder({ id, price, due, status })}
         />
-        <div className={styles.buttonWrapper}>
-          <Button
-            css={{ flex: 1 }}
-            disabled={props.cart.total === 0}
-          >
-            IR A PAGAR
-          </Button>
-        </div>
+          <div className={styles.buttonWrapper}>
+            <Button
+              css={{ flex: 1 }}
+              disabled={props.cart.total === 0}
+            >
+              IR A PAGAR
+            </Button>
+          </div>
       </main>
     </div>
   )
@@ -69,12 +70,13 @@ const Home = (props: Props) => {
 const mapStateToProps = (state: any) => ({
   student: selectors.fetchStudent(state).data,
   orders: selectors.orders(state),
+  loading: selectors.fetchOrders(state).loading,
   cart: selectors.cartReducer(state)
 })
 
 const mapDispatchToProps = ({
   addOrder: addOrderAction,
-  removeOrder: removeOrderAction
+  removeOrder: removeOrderAction.request
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home)

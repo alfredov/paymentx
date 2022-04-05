@@ -17,3 +17,4 @@ export const orders = (state: RootState) => {
 }
 
 export const cartReducer = (state: RootState) => state[REDUCER_INDEX].cartOrder
+export const fetchOrders = (state: RootState) => state[REDUCER_INDEX].fetchOrders

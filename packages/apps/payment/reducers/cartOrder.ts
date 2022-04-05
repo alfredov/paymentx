@@ -22,7 +22,7 @@ export const cartOrder = createReducer<TState, TActions>({ total: 0, items: [] }
       total: items.reduce((acc, val) => acc + val.price, 0)
     }
   })
-  .handleAction(removeOrder, (state, { payload }) => {
+  .handleAction(removeOrder.request, (state, { payload }) => {
     const uncheckedIndex = state.items.findIndex(item => item.id === payload.id)
     if (uncheckedIndex !== -1) {
       const items = state.items.slice(0, uncheckedIndex)

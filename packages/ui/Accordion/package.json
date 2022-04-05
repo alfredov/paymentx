@@ -29,8 +29,7 @@
   },
   "dependencies": {
     "@emotion/react": "^11.5.0",
-    "@radix-ui/react-accordion": "^0.1.6",
-    "uuid": "^8.3.2"
+    "@radix-ui/react-accordion": "^0.1.6"
   },
   "devDependencies": {
     "@types/react": "^17.0.30",

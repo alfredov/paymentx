@@ -1,6 +1,5 @@
 /** @jsxImportSource @emotion/react */
 import * as React from 'react'
-import { v4 } from 'uuid'
 import * as PrimitiveAccordion from '@radix-ui/react-accordion'
 import DownArrowIcon from './DownArrowIcon'
 import styles from './index.styles'
@@ -8,20 +7,20 @@ import { Interpolation, Theme } from '@emotion/react'
 
 type CommomProps = { css?: Interpolation<Theme> }
 
-export type AcordionProps = PrimitiveAccordion.AccordionSingleProps & CommomProps
+export type AcordionProps = PrimitiveAccordion.AccordionMultipleProps & CommomProps
 export type TriggerProps = PrimitiveAccordion.AccordionTriggerProps & CommomProps
 export type ContentProps = PrimitiveAccordion.AccordionContentProps & CommomProps
 
-const RootContext = React.createContext<{ item: string }>({ item: '' })
+const RootContext = React.createContext<{ items: string[] }>({ items: [] })
+
 export const Root: React.FC = ({ children }) => {
-  const [item, setItem] = React.useState<string>('')
+  const [items, setItems] = React.useState<string[]>([])
   return (
-    <RootContext.Provider value={{ item }}>
+    <RootContext.Provider value={{ items }}>
       <PrimitiveAccordion.Root
-        collapsible
         css={styles.root}
-        type="single"
-        onValueChange={value => setItem(value)}
+        type="multiple"
+        onValueChange={values => setItems(values)}
       >
         {children}
       </PrimitiveAccordion.Root>
@@ -30,11 +29,11 @@ export const Root: React.FC = ({ children }) => {
 }
 
 const ItemContext = React.createContext({ value: '' })
-export const Item: React.FC = ({ children }) => {
-  const id = v4()
+export type ItemProps = { value: string }
+export const Item: React.FC<ItemProps> = ({ children, value }) => {
   return (
-    <ItemContext.Provider value={{ value: id }}>
-      <PrimitiveAccordion.Item value={id} css={styles.item}>
+    <ItemContext.Provider value={{ value }}>
+      <PrimitiveAccordion.Item value={value} css={styles.item}>
         {children}
       </PrimitiveAccordion.Item>
     </ItemContext.Provider>
@@ -47,17 +46,17 @@ export const Title: React.FC = ({ children }) => (
 
 export const PrimaryText: React.FC = ({ children }) => {
   const { value } = React.useContext(ItemContext)
-  const { item } = React.useContext(RootContext)
+  const { items } = React.useContext(RootContext)
   
-  return !(item === value) ? (
+  return !(items.includes(value)) ? (
     <span css={styles.primaryText}>{children}</span>
   ): null
 }
 
 export const SecondaryText: React.FC = ({ children }) => {
   const { value } = React.useContext(ItemContext)
-  const { item } = React.useContext(RootContext)
-  return (item === value) ? (
+  const { items } = React.useContext(RootContext)
+  return items.includes(value) ? (
     <span css={styles.primaryText}>{children}</span>
   ): null
 }
@@ -72,7 +71,7 @@ export const Trigger = ({ children, css, ...props }: TriggerProps) => (
 )
 
 export const Content = ({ children, css, ...props }: ContentProps) => (
-  <PrimitiveAccordion.Content {...props} css={[styles.content, css]} >
+  <PrimitiveAccordion.Content {...props} css={[styles.content, css]}>
     {children}
   </PrimitiveAccordion.Content>
 )

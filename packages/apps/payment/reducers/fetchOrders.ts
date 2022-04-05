@@ -6,7 +6,7 @@ import action, { TAction, TSuccess } from '../actions/fetchOrders'
 import addOrder, { TAction as TAddOrderAction } from '../actions/addOrder'
 import removeOrder, { TAction as TRemoveOrderAction } from '../actions/removeOrder'
 
-const { failure, cancel, success } = action
+const { failure, cancel, success, request } = action
 
 type TActions = TAction | TAddOrderAction | TRemoveOrderAction
 
@@ -37,6 +37,7 @@ const updateOrders = (orders: TSuccess) => {
         return previousItemsChecked ? { ...item, disabled: false } : { ...item, disabled: true, checked: false }
       }
     })
+ 
   return [
     ...paid,
     ...due,
@@ -46,7 +47,7 @@ const updateOrders = (orders: TSuccess) => {
 
 const data = createReducer<TSuccess, TActions>([])
   .handleAction([failure, cancel], () => [])
-  .handleAction(removeOrder, (state, { payload }) => {
+  .handleAction(removeOrder.request, (state, { payload }) => {
     const index = state.findIndex(item => item.id === payload.id)
     if (index !== -1) {
       const item = state[index]
@@ -92,8 +93,12 @@ const data = createReducer<TSuccess, TActions>([])
     ]
   })
 
+const loading = createReducer<boolean, TActions>(false)
+  .handleAction([request, removeOrder.request], () => true)
+  .handleAction([failure, success, removeOrder.success ,cancel], () => false)
 
 export default combineReducers({ 
   ...asyncReducer(action),
   data,
+  loading,
 })

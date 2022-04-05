@@ -1,4 +1,5 @@
 
+import * as React from 'react'
 import { format } from 'date-fns'
 import { es } from 'date-fns/locale'
 import * as Accordion from '@bits-x/accordion'
@@ -15,9 +16,11 @@ export type OrdersProps = {
   outstanding: TSuccess,
   onAdd?: (order: TOrder) => void,
   onRemove?: (order: TOrder) => void,
+  loading: boolean,
 }
 
-const Orders = ({ paid, due, outstanding, onAdd, onRemove }: OrdersProps) => {
+const Orders = ({ paid, due, outstanding, onAdd, onRemove, loading }: OrdersProps) => {
+
   const checkHandler = (
     checked: boolean,
     order: Omit<TOrder, 'price'> & { price: string, interest: string | null }
@@ -62,7 +65,7 @@ const Orders = ({ paid, due, outstanding, onAdd, onRemove }: OrdersProps) => {
   }
   return (
     <Accordion.Root>
-      <Accordion.Item>
+      <Accordion.Item value="1">
         <Accordion.Trigger>
           <Accordion.Title>Cuotas pagadas</Accordion.Title>
           <Accordion.PrimaryText>Dale click para expandir</Accordion.PrimaryText>
@@ -77,7 +80,7 @@ const Orders = ({ paid, due, outstanding, onAdd, onRemove }: OrdersProps) => {
           )}
         </Accordion.Content>
       </Accordion.Item>
-      <Accordion.Item>
+      <Accordion.Item value="2">
         <Accordion.Trigger>
           <Accordion.Title>Cuotas pendientes</Accordion.Title>
           <Accordion.PrimaryText>Dale click para expandir</Accordion.PrimaryText>
@@ -108,7 +111,7 @@ const Orders = ({ paid, due, outstanding, onAdd, onRemove }: OrdersProps) => {
           )}
         </Accordion.Content>
       </Accordion.Item>
-      <Accordion.Item>
+      <Accordion.Item value="3">
         <Accordion.Trigger>
           <Accordion.Title>Cuotas futuras</Accordion.Title>
           <Accordion.PrimaryText>Dale click para expandir</Accordion.PrimaryText>
@@ -121,15 +124,17 @@ const Orders = ({ paid, due, outstanding, onAdd, onRemove }: OrdersProps) => {
                 <span className={styles.orderItem}>{order.name}</span>
                 <span className={styles.orderItem}>Vence el {format(new Date(order.due), 'dd MMMM', { locale: es })}</span>
               </div>
-              <Checkbox
-                disabled={order.disabled}
-                defaultChecked={order.checked}
-                onChange={checked => checkHandler(checked, order)}
-              >
-                <Label>
-                  $ {getCurrencyFormat(Number(order.price), order.priceCurrency)}
-                </Label>
-              </Checkbox>
+              {!loading && (
+                <Checkbox
+                  disabled={order.disabled}
+                  defaultChecked={order.checked}
+                  onChange={checked => checkHandler(checked, order)}
+                >
+                  <Label>
+                    $ {getCurrencyFormat(Number(order.price), order.priceCurrency)}
+                  </Label>
+                </Checkbox>
+              )}
             </div>
           )}
         </Accordion.Content>

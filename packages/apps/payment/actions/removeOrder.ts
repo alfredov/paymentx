@@ -1,7 +1,13 @@
-import { ActionType, createAction } from 'typesafe-actions'
+import { ActionType, createAsyncAction } from 'typesafe-actions'
 import { TOrder } from '../schemas'
 
-const action = createAction('REMOVE_ORDER')<TOrder>()
+
+const action = createAsyncAction(
+  'REMOVE_ORDER/REQUEST',
+  'REMOVE_ORDER/SUCCESS',
+  'REMOVE_ORDER/FAILURE',
+  'REMOVE_ORDER/CANCEL',
+)<TOrder, undefined, string, undefined>()
 
 export type TAction = ActionType<typeof action>
 
