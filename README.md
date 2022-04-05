@@ -1,6 +1,7 @@
 ## Getting Started
 This is a monorepo project with `ui` packages and `payment` web package.
 This works with yarn workspaces.
+You can [play here](https://paymentx.vercel.app/) breaking the web page 😈.
 
 ## Requirements
 - [Nodejs](https://nodejs.org/en/download/) >= v16
