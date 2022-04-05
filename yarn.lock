@@ -1570,6 +1570,7 @@ __metadata:
   resolution: "@bits-x/avatar@workspace:packages/ui/Avatar"
   dependencies:
     "@emotion/react": ^11.5.0
+    "@radix-ui/react-avatar": ^0.1.4
     "@types/react": ^17.0.30
     "@types/uuid": ^8
     react: 18.0.0
@@ -3142,6 +3143,21 @@ __metadata:
   peerDependencies:
     react: ^16.8 || ^17.0
   checksum: 189e889f38466d9fd68d06ad9f24d896476dbc245360df2634ef8c44f530597ebf130e51f58caba57a5eb252126a858096432e6e4d0025a2f4b8aa1530be1e11
+  languageName: node
+  linkType: hard
+
+"@radix-ui/react-avatar@npm:^0.1.4":
+  version: 0.1.4
+  resolution: "@radix-ui/react-avatar@npm:0.1.4"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@radix-ui/react-context": 0.1.1
+    "@radix-ui/react-primitive": 0.1.4
+    "@radix-ui/react-use-callback-ref": 0.1.0
+    "@radix-ui/react-use-layout-effect": 0.1.0
+  peerDependencies:
+    react: ^16.8 || ^17.0
+  checksum: cbba5f7b7f174a314d37e1c8c6f9a9a7bc9ec30fc5b75af74fa3341d59f3836810d3500189f5bc857f82183c203cdbfd4c87d35077a50778b42a66a8ddd2fd68
   languageName: node
   linkType: hard
 

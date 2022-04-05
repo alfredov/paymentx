@@ -1,5 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import * as React from 'react'
+import * as AvatarNative from '@radix-ui/react-avatar';
 
 import * as styles from './index.styles'
 
@@ -8,8 +9,12 @@ export const Root: React.FC = ({ children }) => (
 )
 
 export type ImageProps = { alt: string, src: string }
+
 export const Image = (props: ImageProps) => (
-  <img css={styles.image} src={props.src} alt={props.alt} />
+  <AvatarNative.Root>
+    <AvatarNative.Image css={styles.image} src={props.src} alt={props.alt} />
+    <AvatarNative.Fallback delayMs={600}>🌎</AvatarNative.Fallback>
+  </AvatarNative.Root>
 )
 
 export const Name: React.FC = ({ children }) => (

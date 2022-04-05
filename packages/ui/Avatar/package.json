@@ -28,7 +28,8 @@
     "url": "https://github.com/alfredov/paymentx/issues"
   },
   "dependencies": {
-    "@emotion/react": "^11.5.0"
+    "@emotion/react": "^11.5.0",
+    "@radix-ui/react-avatar": "^0.1.4"
   },
   "devDependencies": {
     "@types/react": "^17.0.30",
