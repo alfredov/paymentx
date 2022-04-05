@@ -10,7 +10,7 @@ export const Template = () => {
 
   return (
     <Acordion.Root>
-      <Acordion.Item>
+      <Acordion.Item value="section1">
         <Acordion.Trigger>
           <Acordion.Title>Nombre de categoría</Acordion.Title>
           <Acordion.PrimaryText>title</Acordion.PrimaryText>
@@ -20,7 +20,7 @@ export const Template = () => {
           Contenido
         </Acordion.Content>
       </Acordion.Item>
-      <Acordion.Item>
+      <Acordion.Item value="section2">
         <Acordion.Trigger>
           <Acordion.Title>Subrama de materia</Acordion.Title>
           <Acordion.PrimaryText>Dar click aqui</Acordion.PrimaryText>
