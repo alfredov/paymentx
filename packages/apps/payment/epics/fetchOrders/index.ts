@@ -10,7 +10,7 @@ export const fetchOrdersEpic = (
   action$: ActionsObservable<TAction>
 ) => action$.pipe(
   filter(isActionOf(action.request)),
-  switchMap(({ payload }) =>
+  switchMap(() =>
     ajax.getJSON<TSuccess>('/api/orders').pipe(
       mergeMap(response => of(action.success(
         response.map(item => ({

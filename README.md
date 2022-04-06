@@ -29,3 +29,8 @@ it opens a storybook playground
 ```bash
 yarn build:ui
 ```
+
+### 🧪 How to test mono-repo
+```bash
+yarn test
+```

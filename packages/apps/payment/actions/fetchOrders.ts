@@ -12,14 +12,12 @@ export type TSuccess = {
   disabled: boolean,
 }[]
 
-export type TRequest = { id: string }
-
 const action = createAsyncAction(
   'FETCH_ORDERS/REQUEST',
   'FETCH_ORDERS/SUCCESS',
   'FETCH_ORDERS/FAILURE',
   'FETCH_ORDERS/CANCEL',
-)<TRequest, TSuccess, string, undefined>()
+)<undefined, TSuccess, string, undefined>()
 
 export type TAction = ActionType<typeof action>
 
