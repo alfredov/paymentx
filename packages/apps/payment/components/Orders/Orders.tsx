@@ -93,20 +93,22 @@ const Orders = ({ paid, due, outstanding, onAdd, onRemove, loading }: OrdersProp
                 <span className={styles.orderItem}>{order.name}</span>
                 <span className={styles.orderItem}>Vencido el {format(new Date(order.due), 'dd MMMM', { locale: es })}</span>
               </div>
-              <Checkbox
-                disabled={order.disabled}
-                defaultChecked={order.checked}
-                onChange={checked => checkHandler(checked, order)}
-              >
-                <Label>
-                  $ {getCurrencyFormat(Number(order.price), order.priceCurrency)}
-                </Label>
-                {order.interest && (
+              {!loading && (
+                <Checkbox
+                  disabled={order.disabled}
+                  defaultChecked={order.checked}
+                  onChange={checked => checkHandler(checked, order)}
+                >
                   <Label>
-                    Interés: $ {getCurrencyFormat(Number(order.interest), order.priceCurrency)}
+                    $ {getCurrencyFormat(Number(order.price), order.priceCurrency)}
                   </Label>
-                )}
-              </Checkbox>
+                  {order.interest && (
+                    <Label>
+                      Interés: $ {getCurrencyFormat(Number(order.interest), order.priceCurrency)}
+                    </Label>
+                  )}
+                </Checkbox>
+              )}
             </div>
           )}
         </Accordion.Content>
