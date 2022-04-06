@@ -7,10 +7,8 @@ export const testEpic = (
   epic: Epic,
   count: number,
   inputAction: AnyAction,
-  // eslint-disable-next-line @typescript-eslint/ban-types
   state: {},
   callback: (actions: AnyAction[]) => void,
-  // eslint-disable-next-line @typescript-eslint/ban-types
   dependencies: {} = {},
 ) => {
   const actions = new Subject<AnyAction>()

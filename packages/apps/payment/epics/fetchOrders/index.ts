@@ -4,7 +4,7 @@ import { ajax, AjaxError } from 'rxjs/ajax'
 import { catchError, filter, mergeMap, switchMap } from 'rxjs/operators'
 import { isActionOf } from 'typesafe-actions'
 
-import action,{ TAction, TSuccess } from '../actions/fetchOrders'
+import action,{ TAction, TSuccess } from '../../actions/fetchOrders'
 
 export const fetchOrdersEpic = (
   action$: ActionsObservable<TAction>
