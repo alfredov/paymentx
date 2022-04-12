@@ -5,7 +5,7 @@ import { es } from 'date-fns/locale'
 import * as Accordion from '@bits-x/accordion'
 import { Checkbox, Label } from '@bits-x/checkbox'
 
-import { getCurrencyFormat } from '../../core-app/utils'
+import { getCurrencyFormat, getDate } from '../../core-app/utils'
 import { TSuccess } from '../../actions/fetchOrders'
 import styles from './index.module.css'
 import { TOrder } from '../../schemas'
@@ -75,7 +75,7 @@ const Orders = ({ paid, due, outstanding, onAdd, onRemove, loading }: OrdersProp
           {paid.map(order =>
             <div key={order.id} className={styles.order}>
               <span className={styles.orderItem}>{order.name}</span>
-              <span className={styles.orderItem}>Pagado el {format(new Date(order.due), 'dd MMM', { locale: es })}</span>
+              <span className={styles.orderItem}>Pagado el {format(getDate(order.due), 'dd MMM', { locale: es })}</span>
             </div>
           )}
         </Accordion.Content>
@@ -91,7 +91,7 @@ const Orders = ({ paid, due, outstanding, onAdd, onRemove, loading }: OrdersProp
             <div key={order.id} className={styles.orderWrapper}>
               <div className={styles.order}>
                 <span className={styles.orderItem}>{order.name}</span>
-                <span className={styles.orderItem}>Vencido el {format(new Date(order.due), 'dd MMMM', { locale: es })}</span>
+                <span className={styles.orderItem}>Vencido el {format(getDate(order.due), 'dd MMMM', { locale: es })}</span>
               </div>
               {!loading && (
                 <Checkbox
@@ -124,7 +124,7 @@ const Orders = ({ paid, due, outstanding, onAdd, onRemove, loading }: OrdersProp
             <div key={order.id} className={styles.orderWrapper}>
               <div className={styles.order}>
                 <span className={styles.orderItem}>{order.name}</span>
-                <span className={styles.orderItem}>Vence el {format(new Date(order.due), 'dd MMMM', { locale: es })}</span>
+                <span className={styles.orderItem}>Vence el {format(getDate(order.due), 'dd MMMM', { locale: es })}</span>
               </div>
               {!loading && (
                 <Checkbox
